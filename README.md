@@ -7,10 +7,8 @@ The goals / steps of this project are the following:
 * Reflect on your work in a written report
 
 
-[//]: # (Image References)
-
-[image1]: ./examples/grayscale.jpg "Grayscale"
-[region]: ./examples/regions.png 
+[//]: # (Image References)       
+[region]: ./examples/regions.png         
 ---
 
 ### Reflection
@@ -23,7 +21,6 @@ My pipeline consisted of the followng steps
 3. Detect Canny edge with 50, 180 for low and hight threshold respectfully, these the best value i found after testing it. also I need to eliminate more edges that are not stright
 4. find the best region that very much fit most images on the testing vidoes. 
 
-here an image
 ![alt text][region]
 
 5. hough_lines, the number was taken from one of the quizes in the course 
@@ -59,26 +56,22 @@ y2 = 340 # extend the line to top
 x2 = int(((y2-y1) / avg_slope) + x1)
 ```
 
-4. draw the lines.
+4. Finally draw the lines.
 
 ### 2. Identify potential shortcomings with your current pipeline
 
 
-One potential shortcoming would be what would happen when ... 
+One potential shortcoming would be what would happen when lanes are not painted well on the streat, then it will be hard to find lanes edges. 
 
-Another shortcoming could be ...
+Another shortcoming could be the speed of the car. The fram imaged in the video  would have some bulr, which will make finding lanes hard for the edges
 
-- speed
-- while change lanes
-- lanes are not clear
-- turning left or right
+Also, when the car chagne lanes or truning left or right, the pipeline will not work correctly becuase the region would be differnt and drawing line by finding the slope could be more tricky
 
 
 ### 3. Suggest possible improvements to your pipeline
 
-A possible improvement would be to ...
+A possible improvement would be to modify selected region to work for all images. by only take the bottom have of the image
 
-Another potential improvement could be to ...
-- modify region
+Another potential improvement could be to 
 - connect potential lines find by hough for left or right
 - 
