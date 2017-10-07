@@ -5,10 +5,7 @@
 The goals / steps of this project are the following:
 * Make a pipeline that finds lane lines on the road
 * Reflect on your work in a written report
-
-
-[//]: # (Image References)       
-[region]: ./examples/regions.png         
+       
 ---
 
 ### Reflection
@@ -21,7 +18,7 @@ My pipeline consisted of the followng steps
 3. Detect Canny edge with 50, 180 for low and hight threshold respectfully, these the best value i found after testing it. also I need to eliminate more edges that are not stright
 4. find the best region that very much fit most images on the testing vidoes. 
 
-![alt text][region]
+![alt text](./examples/regions.png)
 
 5. hough_lines, the number was taken from one of the quizes in the course 
 6. draw lines on a color image
@@ -72,6 +69,20 @@ Also, when the car chagne lanes or truning left or right, the pipeline will not 
 
 A possible improvement would be to modify selected region to work for all images. by only take the bottom have of the image
 
-Another potential improvement could be to 
+Another potential improvement.
+1. After geting all possible right or left lines, I would exam each side right or left separately.
+2. Take a line from the  right lines array as an example.
+3. Get the slope of that line.
+4. Take the next line from the right lines array.
+5. get the slope of the another line.
+6.  a. Compare the slopes of the two lines.
+    b. if the thier values are closed to each other move to 7 otherwise go back to step 4
+7. Draw a line between the two lines, and compare the slope of the new line with the average slopes of the other two lines 
+8. If the slopes are cloded to then convert the three lines as a single line. 
+9. Make this line as a base.
+10. move to step 4 
+
+howwever, this approche may fail if the actual lane has a steep curave
+
 - connect potential lines find by hough for left or right
 - 
